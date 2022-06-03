@@ -16,7 +16,7 @@ namespace Cofragens
     {
         //paint walls
 
-        public static void FrameWall(Element wall, Application app)
+        public static void FrameWall(Element wall)
         {
             Document doc = wall.Document;
             Wall newWall = wall as Wall;
@@ -37,7 +37,7 @@ namespace Cofragens
 
         }
         // paint floor
-        public static void FrameFloor(Element floor, Application app)
+        public static void FrameFloor(Element floor)
         {
             Document doc = floor.Document;
             //GeometryElement geometryElement = floor.get_Geometry(new Options());
@@ -51,7 +51,7 @@ namespace Cofragens
             }
         }
         //paint beams
-        public static void FrameBeam(Element beam, Application app)
+        public static void FrameBeam(Element beam)
         {
             Document doc = beam.Document;
             GeometryElement geometryElement = beam.get_Geometry(new Options());
@@ -68,12 +68,14 @@ namespace Cofragens
 
                     }
                     facesAreas.Sort();
-                    foreach (Face face in solid.Faces)
-                    {
-                        for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 2; i++)
                         {
                             facesAreas.RemoveAt(i);
                         }
+
+                    foreach (Face face in solid.Faces)
+                    {
+                        
                         if ((face.ComputeNormal(new UV(0.5, 0.5)).Z <= 0) & facesAreas.Contains(face.Area))
                         {
                             PaintFace.paintFace(beam, face, doc);
@@ -85,7 +87,7 @@ namespace Cofragens
 
 
         //Paint Columns
-        public static void FrameColumn(Element columns, Application app)
+        public static void FrameColumn(Element columns)
         {
             Document doc = columns.Document;
             GeometryElement geometryElement = columns.get_Geometry(new Options());
