@@ -23,7 +23,7 @@ namespace Cofragens
             Document doc = uidoc.Document;
 
             //selecionar os elementos a pintar
-
+            
             Selection selection = uidoc.Selection;
             ICollection<ElementId> selectedIds = selection.GetElementIds();
             FilteredElementCollector walls = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType();
@@ -39,25 +39,25 @@ namespace Cofragens
 
             foreach (Element wallElement in walls)
             {
-                //GeometryElement geometryElement = wallElement.get_Geometry(new Options());
-                Cofragem.FrameWall(wallElement, app);
+                //GeometryElement geometryElement = wallElement.get_Geometry(new Options());65464654654
+                Cofragem.FrameWall(wallElement);
             }
             foreach (Element floorElement in floors)
             {
                 //GeometryElement geometryElement = floorElement.get_Geometry(new Options());
-                Cofragem.FrameFloor(floorElement, app);
+                Cofragem.FrameFloor(floorElement);
 
             }
             foreach (Element beamElement in beams)
             {
                 //GeometryElement geometryElement = beamElement.get_Geometry(new Options());
-                Cofragem.FrameBeam(beamElement, app);
+                Cofragem.FrameBeam(beamElement);
 
             }
             foreach (Element columnElement in columns)
             {
                 //GeometryElement geometryElement = columnElement.get_Geometry(new Options());
-                Cofragem.FrameColumn(columnElement, app);
+                Cofragem.FrameColumn(columnElement);
 
             }
             curTrans.Commit();
