@@ -12,7 +12,7 @@ using System.Reflection;
 
 #endregion
 
-namespace Cofragens
+namespace Cofragem
 {
     class PaintFace
     {

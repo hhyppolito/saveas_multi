@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 #endregion
 
-namespace Cofragens
+namespace Cofragem
 {
     public class Cofragem
     {
@@ -68,17 +68,17 @@ namespace Cofragens
 
                     }
                     facesAreas.Sort();
-                    for (int i = 0; i < 2; i++)
-                        {
-                            facesAreas.RemoveAt(i);
-                        }
-
-                    foreach (Face face in solid.Faces)
+                    if (facesAreas.Count > 0)
                     {
-                        
-                        if ((face.ComputeNormal(new UV(0.5, 0.5)).Z <= 0) & facesAreas.Contains(face.Area))
+                        int nFacestoRemove = facesAreas.Count - 3-1;
+                        facesAreas.RemoveRange(0, nFacestoRemove);
+                        foreach (Face face in solid.Faces)
                         {
-                            PaintFace.paintFace(beam, face, doc);
+
+                            if ((face.ComputeNormal(new UV(0.5, 0.5)).Z <= 0) & facesAreas.Contains(face.Area))
+                            {
+                                PaintFace.paintFace(beam, face, doc);
+                            }
                         }
                     }
                 }

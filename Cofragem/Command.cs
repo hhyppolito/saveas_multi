@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 #endregion
 
-namespace Cofragens
+namespace Cofragem
 {
     [Transaction(TransactionMode.Manual)]
     public class Command : IExternalCommand

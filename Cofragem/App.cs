@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 
 #endregion
 
-namespace Cofragens
+namespace Cofragem
 {
     internal class App : IExternalApplication
     {
@@ -31,7 +31,7 @@ namespace Cofragens
             {
             }
             //Button creation
-            PushButtonData pb1 = new PushButtonData("Cofragens", "Cofragens", curAssembly, "Cofragens.Command");
+            PushButtonData pb1 = new PushButtonData("Cofragens", "Cofragens", curAssembly, "Cofragem.Command");
             pb1.LargeImage = new BitmapImage(new Uri(System.IO.Path.Combine(curAssemblyPath, "3.png")));
 
             //Add ribbon panel
