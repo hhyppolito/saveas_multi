@@ -64,18 +64,28 @@ namespace Cofragem
                     List<double> facesAreas = new List<double>();
                     foreach (Face face in solid.Faces)
                     {
-                        facesAreas.Add(face.Area);
-
+                        if ((face.ComputeNormal(new UV(0.5, 0.5)).Z == 0))
+                            {
+                             facesAreas.Add(face.Area);
+                            }
                     }
                     facesAreas.Sort();
                     if (facesAreas.Count > 0)
                     {
-                        int nFacestoRemove = facesAreas.Count - 3-1;
-                        facesAreas.RemoveRange(0, nFacestoRemove);
+                        double largestFaceArea = facesAreas[facesAreas.Count - 1];
+                        XYZ normalVector = null;
+                        //double vectorAngle = null;
                         foreach (Face face in solid.Faces)
                         {
+                            if (face.Area == largestFaceArea)
+                            {
+                                normalVector = face.ComputeNormal(new UV(0.5, 0.5));
+                            }
+                        }
 
-                            if ((face.ComputeNormal(new UV(0.5, 0.5)).Z <= 0) & facesAreas.Contains(face.Area))
+                        foreach (Face face in solid.Faces)
+                        {
+                            if ((normalVector.AngleTo(face.ComputeNormal(new UV(0.5, 0.5))) == 0 | normalVector.AngleTo(face.ComputeNormal(new UV(0.5, 0.5)))==Math.PI) & face.Area>= largestFaceArea*0.2 | face.ComputeNormal(new UV(0.5, 0.5)).Z<0)
                             {
                                 PaintFace.paintFace(beam, face, doc);
                             }
