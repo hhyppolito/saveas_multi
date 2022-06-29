@@ -153,6 +153,8 @@ namespace Cofragem
             Document doc = genericElement.Document;
             GeometryElement geometryElement = genericElement.get_Geometry(new Options());
 
+
+
             foreach (GeometryObject geoObject in geometryElement)
             {
                 //Solid solid1 = geoObject as Solid;
@@ -160,11 +162,11 @@ namespace Cofragem
                 //{
                 //    foreach (Face face in solid1.Faces)
                 //    {
-                //        if (face.ComputeNormal(new UV(0.5, 0.5)).Z != -1)
+                //        if (face.ComputeNormal(new UV(0.5, 0.5)).Z != 1)
                 //            SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
                 //    }
                 //}
-
+                int v = -1;
                 GeometryInstance geomInst = geoObject as GeometryInstance;
                 if (null != geomInst)
                 {
@@ -174,39 +176,17 @@ namespace Cofragem
                         Solid solid2 = geotransObject as Solid;
                         foreach (Face face in solid2.Faces)
                         {
-                            if (face.ComputeNormal(new UV(0.5, 0.5)).Z != -1)
-                                SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
+                                if (face.ComputeNormal(new UV(0.5, 0.5)).Z != v)
+                                    SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
                         }
                     }
 
                 }
             }
 
-            //        // Get the geometry instance which contains the geometry information
-            //        Autodesk.Revit.DB.GeometryInstance instance = geoObject as Autodesk.Revit.DB.GeometryInstance;
-            //if (null != instance)
-            //{
-            //    foreach (GeometryObject instObj in instance.GetInstanceGeometry())
-            //    {
-            //        Solid solid = instObj as Solid;
-            //        if (null == solid || 0 == solid.Faces.Size || 0 == solid.Edges.Size)
-            //        {
-            //            continue;
-            //        }
-
-            //        //Transform instTransform = instance.Transform;
-            //        // Get the faces and edges from solid, and transform the formed points
-            //        foreach (Face face in solid.Faces)
-            //        {
-            //            if (face.ComputeNormal(new UV(0.5, 0.5)).Z == 0)
-            //            {
-            //                //SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
-            //                PaintFace.paintFace(columns, face, doc);
-            //            }
-            //        }
-            //    }
-            //}
-
+            
+            
+                
         }
     }
 }

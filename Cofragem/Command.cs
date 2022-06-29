@@ -31,50 +31,24 @@ namespace Cofragem
             FilteredElementCollector beams = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_StructuralFraming).WhereElementIsNotElementType();
             FilteredElementCollector columns = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_StructuralColumns).WhereElementIsNotElementType();
             FilteredElementCollector genericmodels = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_GenericModel).WhereElementIsNotElementType();
+            FilteredElementCollector foundations = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_StructuralFoundation).WhereElementIsNotElementType();
 
 
             Transaction curTrans = new Transaction(doc, "Cofragem");
             curTrans.Start();
 
-            JoinElement.Join(4,2,3,1,5,walls, columns, beams, floors, genericmodels, doc);
+            JoinElement.Join(foundations,walls, columns, beams, floors, genericmodels, doc);
 
             curTrans.Commit();
 
             curTrans.Start();
 
-            //foreach (Element wallElement in walls)
-            //{
-            //    //GeometryElement geometryElement = wallElement.get_Geometry(new Options());
-            //    Cofragem.FrameWall(wallElement, app);
-            //}
-            //foreach (Element floorElement in floors)
-            //{
-            //    //GeometryElement geometryElement = floorElement.get_Geometry(new Options());
-            //    Cofragem.FrameFloor(floorElement, app);
-
-            //}
-            //foreach (Element beamElement in beams)
-            //{
-            //    //GeometryElement geometryElement = beamElement.get_Geometry(new Options());
-            //    Cofragem.FrameBeam(beamElement, app);
-
-            //}
-            //foreach (Element columnElement in columns)
-            //{
-            //    //GeometryElement geometryElement = columnElement.get_Geometry(new Options());
-            //    Cofragem.FrameColumn(columnElement, app);
-
-            //}
             foreach (Element genericElement in genericmodels)
             {
                 //GeometryElement geometryElement = columnElement.get_Geometry(new Options());
                 Cofragem.GenericElements(genericElement, app);
-
             }
 
-            JoinElement.Join(2, 3, 1, 4, 5, walls, columns, beams, floors, genericmodels, doc);
-
-    
             curTrans.Commit();
 
             return Result.Succeeded;
