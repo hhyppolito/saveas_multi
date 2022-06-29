@@ -148,36 +148,33 @@ namespace Cofragem
             }
         }   
 
-        public static void GenericElements(Element genericElement, Application app)
+        public static void GenericElements(Element genericElement, IList<double> facesList, Application app)
         {
             Document doc = genericElement.Document;
             GeometryElement geometryElement = genericElement.get_Geometry(new Options());
 
-
-
             foreach (GeometryObject geoObject in geometryElement)
             {
-                //Solid solid1 = geoObject as Solid;
-                //if (solid1 != null)
-                //{
-                //    foreach (Face face in solid1.Faces)
-                //    {
-                //        if (face.ComputeNormal(new UV(0.5, 0.5)).Z != 1)
-                //            SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
-                //    }
-                //}
+
                 int v = -1;
                 GeometryInstance geomInst = geoObject as GeometryInstance;
+  
                 if (null != geomInst)
                 {
                     GeometryElement transformedGeomElem = geomInst.GetInstanceGeometry(geomInst.Transform);
+
                     foreach (GeometryObject geotransObject in transformedGeomElem)
                     {
                         Solid solid2 = geotransObject as Solid;
+                        IList<double> faceAreas = new List<double>();
                         foreach (Face face in solid2.Faces)
                         {
-                                if (face.ComputeNormal(new UV(0.5, 0.5)).Z != v)
-                                    SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
+                          bool isInner =! facesList.Contains(face.Area);
+                          if ((face.ComputeNormal(new UV(0.5, 0.5)).Z != v) & isInner)
+                            {
+                                SolidBoundingBox.CreateSolidFromBoundingBox(face, doc, app);
+                            }
+                              
                         }
                     }
 

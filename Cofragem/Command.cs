@@ -37,6 +37,33 @@ namespace Cofragem
             Transaction curTrans = new Transaction(doc, "Cofragem");
             curTrans.Start();
 
+            IList<double> areas = new List<double>();
+
+            foreach (Element i in genericmodels)
+            {
+                GeometryElement geometryElement = i.get_Geometry(new Options());
+
+                foreach (GeometryObject geoObject in geometryElement)
+                {
+                    GeometryInstance geomInst = geoObject as GeometryInstance;
+
+                    if (null != geomInst)
+                    {
+                        GeometryElement transformedGeomElem = geomInst.GetInstanceGeometry(geomInst.Transform);
+
+                        foreach (GeometryObject geotransObject in transformedGeomElem)
+                        {
+                            Solid solid2 = geotransObject as Solid;
+                            foreach (Face face in solid2.Faces)
+                            {
+                                areas.Add(face.Area);
+                            }
+                        }
+
+                    }
+                }
+            }
+
             JoinElement.Join(foundations,walls, columns, beams, floors, genericmodels, doc);
 
             curTrans.Commit();
@@ -46,7 +73,8 @@ namespace Cofragem
             foreach (Element genericElement in genericmodels)
             {
                 //GeometryElement geometryElement = columnElement.get_Geometry(new Options());
-                Cofragem.GenericElements(genericElement, app);
+                Cofragem.GenericElements(genericElement, areas, app);
+                doc.Delete(genericElement.Id);
             }
 
             curTrans.Commit();
