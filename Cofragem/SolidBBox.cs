@@ -39,9 +39,7 @@ namespace Cofragem
 
             if (parameter == null)
             {
-                TaskDialog.Show("MSG", "É nulo!!");
                 SharePar.CreateShare(doc, app, "Grupo");
-
             }
             //assing area to shareparameter
             Parameter par = ds.LookupParameter("FormWork Area");

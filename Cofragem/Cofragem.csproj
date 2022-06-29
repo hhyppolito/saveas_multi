@@ -55,6 +55,9 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Cofragem.cs" />
+    <Compile Include="BigBBox.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="Join.cs" />
     <Compile Include="SolidBBox.cs" />
     <Compile Include="ShareParametersArea.cs" />
     <Compile Include="PaintFace.cs" />

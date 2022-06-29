@@ -30,36 +30,51 @@ namespace Cofragem
             FilteredElementCollector floors = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_Floors).WhereElementIsNotElementType();
             FilteredElementCollector beams = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_StructuralFraming).WhereElementIsNotElementType();
             FilteredElementCollector columns = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_StructuralColumns).WhereElementIsNotElementType();
-
+            FilteredElementCollector genericmodels = new FilteredElementCollector(doc, selectedIds).OfCategory(BuiltInCategory.OST_GenericModel).WhereElementIsNotElementType();
 
 
             Transaction curTrans = new Transaction(doc, "Cofragem");
             curTrans.Start();
 
+            JoinElement.Join(4,2,3,1,5,walls, columns, beams, floors, genericmodels, doc);
 
-            foreach (Element wallElement in walls)
-            {
-                //GeometryElement geometryElement = wallElement.get_Geometry(new Options());65464654654
-                Cofragem.FrameWall(wallElement);
-            }
-            foreach (Element floorElement in floors)
-            {
-                //GeometryElement geometryElement = floorElement.get_Geometry(new Options());
-                Cofragem.FrameFloor(floorElement);
+            curTrans.Commit();
 
-            }
-            foreach (Element beamElement in beams)
-            {
-                //GeometryElement geometryElement = beamElement.get_Geometry(new Options());
-                Cofragem.FrameBeam(beamElement);
+            curTrans.Start();
 
-            }
-            foreach (Element columnElement in columns)
+            //foreach (Element wallElement in walls)
+            //{
+            //    //GeometryElement geometryElement = wallElement.get_Geometry(new Options());
+            //    Cofragem.FrameWall(wallElement, app);
+            //}
+            //foreach (Element floorElement in floors)
+            //{
+            //    //GeometryElement geometryElement = floorElement.get_Geometry(new Options());
+            //    Cofragem.FrameFloor(floorElement, app);
+
+            //}
+            //foreach (Element beamElement in beams)
+            //{
+            //    //GeometryElement geometryElement = beamElement.get_Geometry(new Options());
+            //    Cofragem.FrameBeam(beamElement, app);
+
+            //}
+            //foreach (Element columnElement in columns)
+            //{
+            //    //GeometryElement geometryElement = columnElement.get_Geometry(new Options());
+            //    Cofragem.FrameColumn(columnElement, app);
+
+            //}
+            foreach (Element genericElement in genericmodels)
             {
                 //GeometryElement geometryElement = columnElement.get_Geometry(new Options());
-                Cofragem.FrameColumn(columnElement);
+                Cofragem.GenericElements(genericElement, app);
 
             }
+
+            JoinElement.Join(2, 3, 1, 4, 5, walls, columns, beams, floors, genericmodels, doc);
+
+    
             curTrans.Commit();
 
             return Result.Succeeded;
