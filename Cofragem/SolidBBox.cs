@@ -24,6 +24,7 @@ namespace Cofragem
             //CurveLoop baseLoop = CurveLoop.Create(edges);
             IList<CurveLoop> loopList = face.GetEdgesAsCurveLoops();
             XYZ topNormal = face.ComputeNormal(new UV(0.5, 0.5));
+            topNormal = topNormal.Multiply(-1);
             //TaskDialog.Show("",topNormal.ToString());
 
             SolidOptions options = new SolidOptions(ElementId.InvalidElementId, ElementId.InvalidElementId);
