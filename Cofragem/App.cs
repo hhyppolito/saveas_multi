@@ -20,8 +20,8 @@ namespace Cofragem
             string curAssemblyPath = System.IO.Path.GetDirectoryName(curAssembly);
 
             //Ribbon tab creation
-            string thisNewTabName = "Henrique2";
-            string thisNewPanelName = "Cofragens";
+            string thisNewTabName = "VE_Menu";
+            string thisNewPanelName = "Tools";
 
             try
             {
@@ -32,7 +32,7 @@ namespace Cofragem
             }
             //Button creation
             PushButtonData pb1 = new PushButtonData("Cofragens", "Cofragens", curAssembly, "Cofragem.Command");
-            pb1.LargeImage = new BitmapImage(new Uri(System.IO.Path.Combine(curAssemblyPath, "3.png")));
+            pb1.LargeImage = new BitmapImage(new Uri(System.IO.Path.Combine(curAssemblyPath, "cf_logo.ico")));
 
             //Add ribbon panel
             RibbonPanel curPanel = a.CreateRibbonPanel(thisNewTabName, thisNewPanelName);

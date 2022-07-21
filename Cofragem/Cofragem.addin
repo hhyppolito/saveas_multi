@@ -6,15 +6,15 @@
     <Assembly>Cofragem.dll</Assembly>
     <FullClassName>Cofragem.Command</FullClassName>
     <ClientId>f2f149e6-154d-482c-974a-7cd8f829d995</ClientId>
-    <VendorId>com.typepad.thebuildingcoder</VendorId>
-    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+    <VendorId>HFH</VendorId>
+    <VendorDescription>HFH</VendorDescription>
   </AddIn>
   <AddIn Type="Application">
     <Name>Application Cofragem</Name>
     <Assembly>Cofragem.dll</Assembly>
     <FullClassName>Cofragem.App</FullClassName>
     <ClientId>6016ae80-3557-49ea-97b2-de2c88547738</ClientId>
-    <VendorId>com.typepad.thebuildingcoder</VendorId>
-    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+    <VendorId>HFH</VendorId>
+    <VendorDescription>HFH</VendorDescription>
   </AddIn>
 </RevitAddIns>
