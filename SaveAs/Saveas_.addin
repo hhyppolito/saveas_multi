@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command Saveas_Mult</Text>
+    <Description>Some description for Saveas_Mult</Description>
+    <Assembly>Saveas_Mult.dll</Assembly>
+    <FullClassName>Saveas_Mult.Command</FullClassName>
+    <ClientId>ab92b692-5bcc-4924-ab10-065070aea62c</ClientId>
+    <VendorId>HFH</VendorId>
+    <VendorDescription>HFH</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application Saveas_Mult</Name>
+    <Assembly>Saveas_Mult.dll</Assembly>
+    <FullClassName>Saveas_Mult.App</FullClassName>
+    <ClientId>1f3a20a8-6dec-4937-8968-e1d07147a57e</ClientId>
+    <VendorId>HFH</VendorId>
+    <VendorDescription>HFH</VendorDescription>
+  </AddIn>
+</RevitAddIns>

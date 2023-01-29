@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cofragem")]
-[assembly: AssemblyDescription("Revit Add-In Description for Cofragem")]
+[assembly: AssemblyTitle("Saveas")]
+[assembly: AssemblyDescription("Revit Add-In Description for Saveas")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Autodesk Inc.")]
-[assembly: AssemblyProduct("Cofragem Revit C# .NET Add-In")]
-[assembly: AssemblyCopyright("Copyright (C) 2020 by Jeremy Tammik, Autodesk Inc.")]
+[assembly: AssemblyProduct("Saveas Revit C# .NET Add-In")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("321044f7-b0b2-4b1c-af18-e71a19252be0")]
+[assembly: Guid("1f3a20a8-6dec-4937-8968-e1d07147a57e")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2022.0.0.0")]
-[assembly: AssemblyFileVersion("2022.0.0.0")]
+[assembly: AssemblyVersion("2023.0.0.0")]
+[assembly: AssemblyFileVersion("2023.0.0.0")]

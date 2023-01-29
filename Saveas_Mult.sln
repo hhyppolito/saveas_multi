@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofragem", "Cofragem\Cofragem.csproj", "{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saveas_Mult", "SaveAs\Saveas_Mult.csproj", "{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "..\CofragemSetup\Setup1\Setup1.vdproj", "{08B8683B-618E-4D75-BEB1-940D4CCB5F31}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_Saveas", "SaveAs_setup\Cof_Paint.vdproj", "{E29F579D-33AD-4B5F-907C-95AE90C75936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,19 +15,19 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Debug|Any CPU.ActiveCfg = Release|x64
+		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Debug|Any CPU.Build.0 = Release|x64
 		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Debug|x64.Build.0 = Debug|Any CPU
 		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Release|x64.ActiveCfg = Release|x64
 		{6A7AEAF2-B18A-43EE-95B7-E02F701E9E63}.Release|x64.Build.0 = Release|x64
-		{08B8683B-618E-4D75-BEB1-940D4CCB5F31}.Debug|Any CPU.ActiveCfg = Release
-		{08B8683B-618E-4D75-BEB1-940D4CCB5F31}.Debug|Any CPU.Build.0 = Release
-		{08B8683B-618E-4D75-BEB1-940D4CCB5F31}.Debug|x64.ActiveCfg = Debug
-		{08B8683B-618E-4D75-BEB1-940D4CCB5F31}.Release|Any CPU.ActiveCfg = Release
-		{08B8683B-618E-4D75-BEB1-940D4CCB5F31}.Release|x64.ActiveCfg = Release
+		{E29F579D-33AD-4B5F-907C-95AE90C75936}.Debug|Any CPU.ActiveCfg = Debug
+		{E29F579D-33AD-4B5F-907C-95AE90C75936}.Debug|Any CPU.Build.0 = Debug
+		{E29F579D-33AD-4B5F-907C-95AE90C75936}.Debug|x64.ActiveCfg = Debug
+		{E29F579D-33AD-4B5F-907C-95AE90C75936}.Release|Any CPU.ActiveCfg = Release
+		{E29F579D-33AD-4B5F-907C-95AE90C75936}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
